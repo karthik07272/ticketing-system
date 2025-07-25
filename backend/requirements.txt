@@ -1,3 +1,4 @@
+# Core App Dependencies
 fastapi==0.95.2
 uvicorn[standard]==0.21.1
 pydantic==1.10.13
@@ -8,17 +9,15 @@ python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 asyncpg==0.27.0
 
-
-
 # PostgreSQL Database
 psycopg2-binary==2.9.9
 sqlalchemy==1.4.49
 alembic==1.13.1
 
-# Development tools
+# Seeding / Mock Data
 faker==20.1.0
 
-# Development
+# Development Tools (these are optional on Render – safe to remove if you hit errors)
 black==23.11.0
 isort==5.12.0
 flake8==6.1.0
