@@ -1,11 +1,11 @@
 import logging
 from sqlalchemy.orm import Session
-from sqlalchemy import and_, or_, func
+from sqlalchemy import and_, or_, func, text
 from datetime import datetime, date
 from typing import Optional, List, Dict, Any
 
-from models import Ticket, ChatSession, ChatMessage
-from schemas import TicketCreate, TicketUpdate, TicketResponse, TicketSearchResponse
+from models import Ticket
+from schemas import TicketCreate, TicketUpdate, TicketSearchResponse
 
 logger = logging.getLogger(__name__)
 
@@ -177,4 +177,5 @@ class TicketCRUD:
         except Exception as e:
             logger.error(f"Error searching tickets: {str(e)}")
             raise
-
+    
+    
