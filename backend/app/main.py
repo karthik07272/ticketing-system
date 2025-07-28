@@ -27,9 +27,9 @@ async def lifespan(app: FastAPI):
     # Create database tables
     try:
         create_database()
-        logger.info("✅ Database tables ready")
+        logger.info("Database tables ready")
     except Exception as e:
-        logger.error(f"❌ Failed to create database tables: {str(e)}")
+        logger.error(f"Failed to create database tables: {str(e)}")
         raise    
     yield
     
@@ -37,9 +37,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Support Ticket System",
-    description="Intelligent customer support ticket system with PostgreSQL",
-    version="1.0.0",
-    lifespan=lifespan
+    description="support ticket system with PostgreSQL",
+    version="1.0.0"
 )
 
 # CORS middleware - Allow all origins for development

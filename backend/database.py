@@ -37,17 +37,17 @@ def test_connection():
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
-            logger.info("✅ PostgreSQL connection successful")
+            logger.info("PostgreSQL connection successful")
             return True
     except Exception as e:
-        logger.error(f"❌ PostgreSQL connection failed: {str(e)}")
+        logger.error(f"PostgreSQL connection failed: {str(e)}")
         return False
 
 
 def create_database():
     try:
         Base.metadata.create_all(bind=engine)
-        logger.info("✅ Database tables created successfully")
+        logger.info("Database tables created successfully")
     except Exception as e:
-        logger.error(f"❌ Failed to create database tables: {str(e)}")
+        logger.error(f"Failed to create database tables: {str(e)}")
         raise

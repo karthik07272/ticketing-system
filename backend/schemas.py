@@ -7,7 +7,7 @@ class TicketBase(BaseModel):
     body: str
     status: str = "open"
     priority: str = "medium"
-    customer_email: str  # Changed from EmailStr to str for simplicity
+    customer_email: str  
     customer_name: str
     assigned_agent: Optional[str] = None
 

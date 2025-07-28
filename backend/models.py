@@ -26,7 +26,7 @@ class Ticket(Base):
         Index('idx_tickets_customer_email_status', 'customer_email', 'status'),
         Index('idx_tickets_assigned_agent_status', 'assigned_agent', 'status'),
         
-        # Full-text search indexes (PostgreSQL specific)
+        # Full-text search indexes or fuzzy string matching,(PostgreSQL specific)
         Index('idx_tickets_subject_gin', 'subject', postgresql_using='gin', postgresql_ops={'subject': 'gin_trgm_ops'}),
         Index('idx_tickets_body_gin', 'body', postgresql_using='gin', postgresql_ops={'body': 'gin_trgm_ops'}),
         Index('idx_tickets_customer_name_gin', 'customer_name', postgresql_using='gin', postgresql_ops={'customer_name': 'gin_trgm_ops'}),
@@ -50,7 +50,7 @@ class ChatMessage(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
     session_id = Column(UUID(as_uuid=True), nullable=True, index=True)
     user_id = Column(String(255), nullable=True, index=True)
-    message_type = Column(String(20), nullable=False, index=True)  # 'user' or 'assistant'
+    message_type = Column(String(20), nullable=False, index=True)
     content = Column(Text, nullable=False)
     intent_type = Column(String(50), nullable=True, index=True)
     intent_confidence = Column(String(10), nullable=True)
