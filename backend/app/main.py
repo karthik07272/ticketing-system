@@ -44,7 +44,7 @@ app = FastAPI(
 # CORS middleware - Allow all origins for development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend domain
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -126,7 +126,7 @@ async def search_tickets(
         raise HTTPException(status_code=500, detail=f"Error searching tickets: {str(e)}")
 
 @app.post("/seed-database")
-async def seed_database(count: int = Query(100000, ge=1000), db=Depends(get_db)):
+async def seed_database(count: int = Query(100000), db=Depends(get_db)):
     """Seed the database with sample tickets"""
     try:
         seed_tickets(db, count)

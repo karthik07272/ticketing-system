@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 fake = Faker()
 
-def seed_tickets(db: Session, count: int = 10):
+def seed_tickets(db: Session, count: int = 100000):
     """Seed the database with fake ticket data"""
     
     # Clear existing data
